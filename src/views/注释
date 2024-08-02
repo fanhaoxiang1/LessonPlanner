@@ -1,0 +1,75 @@
+
+                    <div class="banner">
+                        下面，你可以通过对话框对大纲进行修改。<br>
+                        课程大纲用{lesson_outline}代替。
+                        <br>
+                    </div>
+                    <hr style="margin: 20px 0 0 0;" />
+                    <div id="slider">
+                        <p style="margin: 20px 20px 20px 20px"> 返回的记录数</p>
+                        <el-slider v-model="sliderValue" :min="1" :max="5" :step="1" show-stops show-tooltip>
+                        </el-slider>
+                        <!-- 添加按钮，并绑定点击事件 -->
+                        <!-- <el-button @click="handleButtonClick">更新历史记录长度</el-button> -->
+                    </div>
+                    <h2>Prompt内容</h2>
+                    <p>Prompt内容，课程名称用{lesson_name}代替，课程关于用{lesson_theme}代替，课程目标用{lesson_goal}代替，课程内容用{lesson_content}代替。
+                        课程大纲用{lesson_outline}代替。没有设置历史记录，可以直接复制lesson plan的内容进来进行提示生成。</p>
+                    <!-- <div>
+                            <el-input v-model="input3" placeholder="Please input" />
+                        </div>
+                        <p>Description & Deatils</p> -->
+                    <div>
+                        <el-input :rows="15" type="textarea" v-model="prompt_comm" />
+                    </div>
+                    <!-- <p><el-button plain>+ Outcome</el-button></p>
+                        <p>Suppoert skills</p>
+                        <el-select v-model="value" class="m-2" placeholder="Select" size="large"
+                            style="width: 240px">
+                            <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                :value="item.value" />
+                        </el-select> -->
+                    <!-- <hr /> -->
+                    <div style="display: flex; justify-content: flex-end; margin-bottom: 20px; margin-top: 10px;">
+                        <el-button plain @click='generateCommunication'>Generate based on Prompt</el-button>
+                        <!-- <el-button plain>Done</el-button> -->
+                    </div>
+                    <div id="responses">
+                        <p>{{ response_time }}</p>
+                        <div v-html="renderedMarkdownResponses"></div>
+
+                    </div>
+
+                    <!-- <div class="temp" style="padding: 20px 0;">
+                            <div class="left">
+                                </div><span>1 of 3</span>
+                                    <div class="left" style="margin-left: 20px;">></div> <el-button plain>+ New
+                                        suggetsion</el-button>
+                            </div>
+                            <hr /> -->
+
+
+                    <br />
+                    <br />
+                    <h2>以下是施工区域…………</h2>
+                    <div style="padding: 40px 0;">
+                        <span class="bdg" style="background-color: rgb(0, 0, 0); margin-right: 20px;">获取注意力</span>
+                        <span class="bdg" style="background-color: rgb(7, 176, 7);">很短</span>
+                        <br>
+                        <h2 style="display: inline-block;margin: 20 20px;">教学内容相关的案例
+                        </h2>
+                        <p>
+                            在线上书店中，顾客希望按照书籍的评分快速找到排名前10的书籍。你作为开发者，需要实现一个高效的算法来处理这样的请求。在排序过程中，你是否曾经想知道某个特定书籍最终在所有书籍中的排名？
+                        </p>
+                        <h2 style="display: inline-block;margin: 20 20px;">教学内容相关的开放性问题<br>
+                        </h2>
+                        <p>
+                            假设你的服务器资源有限，内存使用受到严格限制，而你需要对数百万条记录进行排序。在对空间复杂度要求高的情况下，是否有一种算法能够对这些大量元素进行排序？
+
+                            <!-- <p>
+                                    <el-button style="float: right;" type="primary" :icon="Search">Implement ontent
+                                        generatio</el-button>
+                                </p> -->
+                        </p>
+                    </div>
+                    <hr />
